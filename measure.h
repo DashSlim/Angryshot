@@ -10,8 +10,8 @@
 
 //define the pin configuration of the main board
 //nRF24L01+ SPI configuration:
-#define CE	8
-#define CSN	9
+#define CE	12
+#define CSN	13
 //HX711--01 UART configuration:
 #define SCK1	4
 #define DOUT1	5
@@ -31,7 +31,7 @@ public:
 	void initnRF24L01();
 
 	//get the force data, update force_last
-	double getForce(double * force_last, double * force);
+	double getForce();
 	//get the angle data from wireless radio
 	double getAngle();
 

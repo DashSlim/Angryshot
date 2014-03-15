@@ -1,5 +1,5 @@
 //#include "Angryshot.h"
-
+//tested on 1/3/2014
 //include below is due to the quirk of Arduino platform
 #include "Slingshot.h"
 #include <HX711.h>
@@ -23,7 +23,6 @@ void setup()
 	//initialize the hardware
 	//using the UART in baud rate 9600 for debugging
 	leo.init(button, 0, 9600);
-	
 	//set the initial status as "wait"
 	leo.setStatus(wait);
 }
@@ -44,7 +43,9 @@ void loop()
 	
 	//update data (force and angle)
 	leo.update();
-	
+	Serial.print(leo.getForce());
+	Serial.print('\t');
+	Serial.println(leo.getAngle());
 	//END OF PHASE #2
 	
 	//PHASE #3-----------------------------------
@@ -68,6 +69,7 @@ void loop()
 			Mouse.press();
 			//set the flag to ignore the first N moves
 			leo.setFirstMove();
+			first_move_bias = leo.getLength();
 			//enter status "aim"
 			leo.setStatus(aim);
 		}
@@ -91,12 +93,17 @@ void loop()
 			{
 			  //Serial.println("1st");
 			  
-			  moveWithSlingshot(leo.getLength() - first_move_bias, leo.getAngle());//ACTION  4
+			  //moveWithSlingshot(leo.getLength(), leo.getAngle()*3.1415926/180);//ACTION  4
+			  
+			  //set first_move_bias as the 1st 10 average
 			  move_cnt ++;
+			  //first_move_bias *= (move_cnt + 1);
+			  first_move_bias += leo.getLength();
+			  //first_move_bias *= (move_cnt + 2);
 			  if(move_cnt > 10)
 			  {
 				move_cnt = 0;
-				first_move_bias = leo.getLength();
+                                first_move_bias = first_move_bias / 10;				
 				leo.clearFirstMove();
 			  }
 			  //moveWithSlingshot(0);//ACTION  4
@@ -106,7 +113,7 @@ void loop()
 			else
 			{
 				//Serial.println("after");
-				moveWithSlingshot(leo.getLength() - first_move_bias, leo.getAngle());
+				moveWithSlingshot(leo.getLength(), leo.getAngle()*3.1415926/180);
 				//Serial.println(getLength_offset());
 				//delay(1000);
 			}

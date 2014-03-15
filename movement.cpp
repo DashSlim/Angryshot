@@ -3,7 +3,7 @@
 #include "movement.h"
 
 int singleMoveLimit = 20;
-int MStep = 6;
+int MStep = 2;
 
 int x = 0;
 int y = 0;

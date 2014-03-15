@@ -49,6 +49,8 @@ public:
 	double getLengthOffset();
 	//get angle
 	double getAngle();
+	//get force
+	double getForce();
 	//get Length
 	double getLength();
 	
@@ -81,7 +83,7 @@ private:
 	static const double suddenForce = 130000;
 
 	//a rise in the value of strength greater than this would be considered as pulling of the string
-	static const double tightenForce = 300000;
+	static const double tightenForce = 100000;
 	
 };
 

@@ -10,6 +10,8 @@
 #include "printf.h"
 #include <SPI.h>
 
+//#define PRINTALL
+
 /*constant to evaluate slingshot behaviour*/
 
 //the threshold for maximal strength
@@ -204,18 +206,20 @@ double Sensors::getAngle()
   //Serial.println(angle);
 }
 
-double Sensors::getForce(double * force_last, double * force)
+double Sensors::getForce()
 {
 	int sample = 10;
 	double sum1 = 0;
 	double sum2 = 0;
+	
+	double _force = 0;
   
 	while(true)
 	{
 		for (int i = 0; i < sample; i++)
 		{
 			sum1 += hx1.bias_read();
-			sum2 += hx2.bias_read();
+			sum2 += hx2.bias_read();	
 		}
 		sum1 = sum1/sample;
 		sum2 = sum2/sample;
@@ -230,15 +234,19 @@ double Sensors::getForce(double * force_last, double * force)
                         Serial.println(sum2);
                 }
 	}
-
-	*force_last = *force;
         if(sum1 < 0 || sum2 < 0)
-          *force = 0;
+          _force = 0;
         else
-          *force = (sum1 + sum2);
+          _force = (sum1 + sum2);
         //Serial.print("force:");
         //Serial.print(force);
-}
+#ifdef PRINTALL
+		Serial.print("***********************************force:");
+		Serial.println(_force);
+#endif
+
+	return _force;
+	}
 
 void Sensors::initHX711(int bias1, int bias2)
 {
@@ -371,6 +379,7 @@ void Sensors::initnRF24L01()
         // Dump the payloads until we've gotten everything
         long got_time;
         bool done = false;
+        int done_cnt = 0;
         while (!done)
         {
           // Fetch the payload, and see if this was the last one.
@@ -379,8 +388,11 @@ void Sensors::initnRF24L01()
           // Spew it
           //printf("Got payload %l...",got_time);
           Serial.println(got_time);
-          Serial.println("Raedy to gather angle");
-          initdone = true;  
+          Serial.print("Raedy to gather angle:");
+		  Serial.println(done_cnt);
+          initdone = true;
+          if(done_cnt++>20)
+            done = true;  
   	// Delay just a little bit to let the other unit
   	// make the transition to receiver
   	delay(20);

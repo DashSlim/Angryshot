@@ -12,7 +12,9 @@ void Slingshot::init(int bPin, int global_length_offset, int baud_rate)
 	
 	Serial.begin(baud_rate);
 	pinMode(bPin, INPUT);
+	
 	sensor.initHX711(35000, 39000);
+	
 	sensor.initnRF24L01();
 	Mouse.begin();
 	attachInterrupt(0,special_act, FALLING);
@@ -26,7 +28,8 @@ bool Slingshot::test()
 
 bool Slingshot::update()
 {
-	sensor.getForce(&force_last, &force);
+	force_last = force;
+	force = sensor.getForce();
 	length = sensor.force2length(force);
 	angle = sensor.getAngle();
 }
@@ -94,6 +97,10 @@ double Slingshot::getLengthOffset()
 double Slingshot::getAngle()
 {
 	return angle;
+}
+double Slingshot::getForce()
+{
+	return force;
 }
 double Slingshot::getLength()
 {
