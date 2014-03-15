@@ -19,7 +19,7 @@ Hardware Requirement
 
 Notice
 ---
-This is currently finished, though some parameters may meed to be adjusted.
+This is currently finished, but some parameters may meed to be adjusted to fit your implementation, see comments for more details.
 
 Inspired by 
 ---
