@@ -1,7 +1,8 @@
 AngrtShot
 ===
 
-    This is a new version of firmware for angrybird game cntroller project, I choose to drop the old repo name and most of the structures.
+    This is a new version of firmware for angrybird game cntroller project.
+    I choose to drop the old repo name and most of the structures.
     This is a USB slingshot toy dedicated to play Angry Bird Game.
     This is a USB slingshot toy, using arduino leonardo and Pro mini (v3.3).
 
@@ -19,7 +20,7 @@ Hardware Requirement
 
 Notice
 ---
-    This is currently finished, but some parameters may meed to be adjusted to fit your implementation, see comments for more details.
+    This is currently finished, but some parameters may meed to be adjusted to fit your implementation.
 
 Inspired by 
 ---
