@@ -1,5 +1,4 @@
 AngrtShot
-
 ===
 
 This is a new version of firmware for angrybird game cntroller project, I choose to drop the old repo name and most of the structures.
