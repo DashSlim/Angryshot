@@ -1,4 +1,5 @@
 AngrtShot
+    Angryshot is an interactive game controller for Angrybird using REAL slingshot !
 ===
 
     This is a new version of firmware for angrybird game cntroller project.
@@ -42,4 +43,4 @@ reference
 
 License
 ---
-    Slingshot is a free software released under GPL v2.
+    Angryshot is a free software released under GPL v2.
