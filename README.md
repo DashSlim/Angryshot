@@ -26,8 +26,8 @@ Notice
     
 Model by Creo and 3D printed part:
 ---
-    ![cad](https://github.com/DashSlim/Angryshot/blob/master/CAD%20model.png "CAD")
-    ![3D Printed](https://github.com/DashSlim/Angryshot/blob/master/3d%20printed%20model.jpg "3D Printed")
+    ![cad](Rendering.png "CAD")
+    ![3D Printed](3DPrint.jpg "3D Printed")
 
 Inspired by 
 ---
