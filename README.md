@@ -26,8 +26,8 @@ Notice
     
 Model by Creo and 3D printed part:
 ---
-    ![cad](Rendering.png "CAD")
-    ![3D Printed](3DPrint.jpg "3D Printed")
+![cad](Rendering.png "CAD")
+![3D Printed](3DPrint.jpg "3D Printed")
 
 Inspired by 
 ---
