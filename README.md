@@ -8,7 +8,7 @@ AngrtShot
     This is a USB slingshot toy dedicated to play Angry Bird Game.
     This is a USB slingshot toy, using arduino leonardo and Pro mini (v3.3).
 
-Hardware Requirement
+BOM
 ---
     1 Arduino Leonardo Board
     1 Arduino Pro mini Board
@@ -28,20 +28,16 @@ Model by Creo and 3D printed part:
 ---
 CAD Rendering             |  3D Printed Prototype
 :-------------------------:|:-------------------------:
-![](Rendering.png)  |  ![](3DPrint.jpg)
+<img src="./Rendering.png" alt="drawing" height="400"/>  |  <img src="./3DPrint.jpg" alt="drawing" height="400"/>
 
 Inspired by 
 ---
     mbed USB Slingshot! - YouTube www.youtube.com/watch?v=a97bWORY4Og
 
-library included
+Libraries
 ---
     http://maniacbug.GITHUB.com/RF24
     HX711 lib by phk@FreeBSD.ORG Thanks!
-
-reference
----
-    http://mbed.org/cookbook/Slingshot
 
 License
 ---
